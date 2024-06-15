@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Left Before Christmas</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+p {
+    font-size: 1.5em;
+    color: #555;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Days Left Before Christmas</h1>
+        <p id="daysLeft"></p>
+    </div>
+
+    <script>
+        function calculateDaysLeft() {
+            const today = new Date();
+            const currentYear = today.getFullYear();
+            const christmasDate = new Date(currentYear,11,25);
+            console.log(christmasDate);
+            if (today > christmasDate) {
+                // If today is after December 25, set the Christmas date to next year
+                christmasDate.setFullYear(currentYear + 1);
+            }
+            const oneDay = 24 * 60 * 60 * 1000; // Hours * minutes * seconds * milliseconds
+            const daysLeft = Math.round((christmasDate - today) / oneDay);
+            return daysLeft;
+        }
+
+        document.getElementById('daysLeft').textContent = `${calculateDaysLeft()} days left until Christmas!`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+input {
+    font-size: 1em;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+button {
+    font-size: 1em;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#resultMessage {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number</h1>
+        <p>Guess a number between 1 and 10:</p>
+        <input type="number" id="guessInput" min="1" max="10">
+        <button onclick="checkGuess()">Submit</button>
+        <p id="resultMessage"></p>
+    </div>
+
+    <script>
+        //Fpr generating random number
+        const randomNo = Math.floor(Math.random()*10)+1;
+        console.log(randomNo);
+
+        function checkGuess(){
+
+            const guessNo = parseInt(document.getElementById('guessInput').value);
+            if (guessNo === randomNo) {
+                resultMessage.textContent = "Good Work";
+                resultMessage.style.color = "green";
+            } else {
+                resultMessage.textContent = "Not matched";
+                resultMessage.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
